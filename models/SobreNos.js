@@ -37,5 +37,6 @@ export class ListaMembros {
     deletarMembro(id) {
         this.membros = this.membros.filter(membro => membro.id != id);
     }
+    
 }
 export default Sobre;
