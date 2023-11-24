@@ -742,7 +742,7 @@ const Cards = [
         range: "Corpo a corpo",
         speed: "Média",
         impactspeed: "",
-    },
+    }
     
 
 
