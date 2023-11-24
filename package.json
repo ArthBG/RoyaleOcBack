@@ -6,11 +6,12 @@
   },
   "name": "royaleocback",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
+  "type": "module",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
