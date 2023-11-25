@@ -1,4 +1,4 @@
-const Cards = [
+export const cardsBody = [
     {
         name: "NOME-DA-CARTA",
         image: "/images/nome inteiro da carta em minúsculo .png",

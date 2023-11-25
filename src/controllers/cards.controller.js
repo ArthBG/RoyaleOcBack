@@ -52,7 +52,7 @@ export const getCardByID = (req, res) => {
     }
 }
 
-export const addCard = (req, res) => {
+export const createCard = (req, res) => {
     const { name, image, type, rarity, elixir, hp, deploytime, shieldhp, description, damage, damagepersecond, rangeddamage, damageondistance, damageonarea, damageonimpact, damageontower, chargedamage, damageondeath, spawnspeed, duration, radius, width, efecttime, freezetime, unities, arena, target, projectilerange, range, speed, impactspeed } = req.body;
     // const errors = [];
 
@@ -102,7 +102,7 @@ export const updateCard = (req, res) => {
     }
 }
 
-export const removeCard = (req, res) => {
+export const deleteCard = (req, res) => {
     const { id } = req.params;
     listCards.removeCard(id);
     return res.status(200).send({ message: "Carta removida com sucesso" });

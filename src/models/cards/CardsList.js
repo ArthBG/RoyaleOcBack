@@ -1,3 +1,4 @@
+import { cardsBody } from "../../data/cardsbody";
 export class CardsList {
     constructor() {
         this.cards = [];
