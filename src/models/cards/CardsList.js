@@ -1,7 +1,9 @@
-import { cardsBody } from "../../data/cardsbody";
+import { cardsBody } from "../../data/cardsbody.js";
 export class CardsList {
     constructor() {
         this.cards = [];
+        const cardBody = cardsBody;
+        this.cards.push(cardBody); 
     }
 
     addCard(card) {

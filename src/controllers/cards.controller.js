@@ -1,5 +1,5 @@
 import { Cards } from "../models/cards/cards.js";
-import { CardsList } from "../models/cards/cardsList.js";
+import { CardsList } from "../models/cards/CardsList.js";
 
 const listCards = new CardsList();
 
