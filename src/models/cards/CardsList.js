@@ -1,4 +1,4 @@
-export class CardList {
+export class CardsList {
     constructor() {
         this.cards = [];
     }
@@ -13,6 +13,22 @@ export class CardList {
 
     getAllCards() {
         return this.cards;
+    }
+
+    getCardByName(name) {
+        return this.cards.find(card => card.name === name);
+    }
+
+    getCardByType(type) {
+        return this.cards.find(card => card.type === type);
+    }
+
+    getCardByRarity(rarity) {
+        return this.cards.find(card => card.rarity === rarity);
+    }
+
+    getCardByElixir(elixir) {
+        return this.cards.find(card => card.elixir === elixir);
     }
 
     removeCard(id) {
