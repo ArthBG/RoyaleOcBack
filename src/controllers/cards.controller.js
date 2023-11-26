@@ -36,7 +36,7 @@ export const getCards = (req, res) => {
         return res.status(200).send(filtered);
     }
     else {
-        return res.status(200).send(listCards.getAllCards());
+        return res.status(200).send({total: listCards.getCardsLength(), cards: listCards.getAllCards()});
     }
 
 }

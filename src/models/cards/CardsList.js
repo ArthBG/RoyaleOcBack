@@ -19,6 +19,10 @@ export class CardsList {
         return this.cards;
     }
 
+    getCardsLength(){
+        return this.cards.map(card => card.length);
+    }
+
     getCardByName(name) {
         return this.cards.find(card => card.name === name);
     }
