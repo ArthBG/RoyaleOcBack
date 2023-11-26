@@ -4,7 +4,7 @@ export class CardsList {
     constructor() {
         this.cards = [];
         const cards = cardsBody.map(card => new Cards(card.name, card.image, card.type, card.rarity, card.elixir, card.hp, card.deploytime, card.shieldhp, card.description, card.damage, card.damagepersecond, card.rangeddamage, card.damageondistance, card.damageonarea, card.damageonimpact, card.damageontower, card.chargedamage, card.damageondeath, card.spawnspeed, card.duration, card.radius, card.width, card.efecttime, card.freezetime, card.unities, card.arena, card.target, card.projectilerange, card.range, card.speed, card.impactspeed));
-        this.cards.push(cards);
+        this.cards.push(...cards);
         console.log(this.cards);
     }
     addCard(card) {
