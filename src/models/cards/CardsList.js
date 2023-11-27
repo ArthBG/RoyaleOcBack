@@ -20,9 +20,8 @@ export class CardsList {
     }
 
     getCardsLength(){
-        return this.cards.map(card => card.length);
+        return this.cards.length;
     }
-
     getCardByName(name) {
         return this.cards.find(card => card.name === name);
     }
