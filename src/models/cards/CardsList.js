@@ -1,5 +1,5 @@
 import { cardsBody } from "../../data/cardsbody.js";
-import { Cards } from "../cards/cards.js";
+import { Cards } from "./Cards.js";
 export class CardsList {
     constructor() {
         this.cards = [];
