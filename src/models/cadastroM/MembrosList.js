@@ -34,7 +34,7 @@ export class MembrosList {
     removeMembro(id) {
         this.membros = this.membros.filter(membro => membro.id !== id);
     }
-
+n
     updateMembro(nome, idade, cargo, foto, descricao, id) {
         const membro = this.getMembroByID(id);
         if (!membro) return;
