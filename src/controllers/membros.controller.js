@@ -50,8 +50,8 @@ export const createMembro = (req, res) => {
             { message: "Todos os campos são obrigatórios" });
     }
 
-    if (nome.length > 20) {
-        erros.push("O nome deve ter no máximo 20 caracteres");
+    if (nome.length > 30) {
+        erros.push("O nome deve ter no máximo 30 caracteres");
     }
 
     if (idade < 15) {
