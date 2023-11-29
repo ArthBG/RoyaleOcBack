@@ -6,7 +6,7 @@ export class MembrosList {
         this.membros = [];
         const membros = integrantes.map(membro => new Membros(membro.nome, membro.idade, membro.cargo, membro.foto, membro.descricao));
         this.membros.push(...membros);
-        console.log(this.membros);
+       // console.log(this.membros);
     }
     addMembro(membro) {
         this.membros.push(membro);
@@ -34,7 +34,7 @@ export class MembrosList {
     removeMembro(id) {
         this.membros = this.membros.filter(membro => membro.id !== id);
     }
-n
+
     updateMembro(nome, idade, cargo, foto, descricao, id) {
         const membro = this.getMembroByID(id);
         if (!membro) return;

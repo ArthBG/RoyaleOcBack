@@ -43,12 +43,7 @@ export const getMembroByID = (req, res) => {
 export const createMembro = (req, res) => {
     let { nome, idade, cargo, foto, descricao } = req.body;
     const erros = [];
-    
-    
-    const isUrlValida = (foto) => {
-        const regex = /(http(s?):)([/|.|\w|\s|-])*\.(jpg|gif|png)/g;
-        return regex.test(foto);
-    } 
+ 
 
     if (!nome || !idade || !cargo || !foto || !descricao) {
         return res.status(400).send(
@@ -68,9 +63,7 @@ export const createMembro = (req, res) => {
     if (descricao.length > 100) {
         erros.push("A descrição deve ter no máximo 100 caracteres");
     }
-    if(!isUrlValida(foto)){
-        erros.push({ message: "Imagem da roupa não pode ser diferente de png, gif, jpg, jpeg!" });
-    }
+
     if (erros.length) {
         return res.status(400).send({ message: `Corrija, Voce tem ${erros.length} erro(s)`, erros });
     }
