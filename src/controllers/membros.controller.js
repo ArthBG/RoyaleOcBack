@@ -1,5 +1,5 @@
-import { Membros } from "../models/cadastroM/Membros.js";
-import { MembrosList } from "../models/cadastroM/MembrosList.js";
+import { Membros } from "../models/membros/Membros.js";
+import { MembrosList } from "../models/membros/MembrosList.js";
 
 const listMembros = new MembrosList();
 
