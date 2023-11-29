@@ -1,7 +1,7 @@
 export const cardsBody = [
     {
         name: "Eletrocutadores",
-        image: "/images/eletrocudadores.png",
+        image: "/images/eletrocutadores.png",
         type: "Tropa",
         rarity: "Raro",
         elixir: 4,
@@ -142,7 +142,7 @@ export const cardsBody = [
 
     {
         name: "Destruidores De Muros",
-        image: "/images/destruidoresdemuros.png",
+        image: "/images/quebramuros.png",
         type: "Tropa",
         rarity: "Épico",
         elixir: 2,
@@ -216,7 +216,7 @@ export const cardsBody = [
 
     {
         name: "Goblin Gigante",
-        image: "/images/goblingigante.png",
+        image: "/images/goblingiant.png",
         type: "Tropa",
         rarity: "Épico",
         elixir: 6,
@@ -326,7 +326,7 @@ export const cardsBody = [
     },
     {
         name: "Dragão Elétrico",
-        image: "/images/dragaoeletrico.png",
+        image: "/images/electrodragon.png",
         type: "Tropa",
         rarity: "Épico",
         elixir: 5,
