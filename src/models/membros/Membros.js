@@ -1,8 +1,6 @@
-import { v4 as uuidv4 } from 'uuid';
-
 export class Membros {
     constructor(nome, idade, cargo, foto, descricao) {
-        this.id = uuidv4();
+        this.id = this.generateId();
         this.nome = nome;
         this.idade = idade;
         this.cargo = cargo;
@@ -10,6 +8,9 @@ export class Membros {
         this.descricao = descricao;
         
 
+    }
+    generateId(){
+        return Math.floor(Math.random() * 100020);
     }
  
 }
