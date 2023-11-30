@@ -1,4 +1,4 @@
-export class Membros {
+    export class Membros {
     constructor(nome, idade, cargo, foto, descricao) {
         this.id = this.generateId();
         this.nome = nome;

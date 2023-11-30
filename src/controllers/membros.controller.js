@@ -102,9 +102,7 @@ export const atualizarMembro = (req, res) => {
     if (descricao.length > 100) {
         erros.push("A descrição deve ter no máximo 100 caracteres");
     }
-    if(foto!= "jpg" && foto != "png" && foto != "gif" && foto != "jpeg" && foto != "webp"){
-        erros.push("A URL da foto é inválida");
-    }
+
     if (erros.length > 0) {
         return res.status(400).send({ message: `Corrija, Voce tem ${erros.length} erro(s)`, erros });
        
