@@ -5,7 +5,7 @@ import membroRouter from './membros.routes.js';
 const routes = Router();
 
 routes.get('/', (req, res) => {
-    res.send('Bem-Vindo(a)!');
+    res.send('Server On!');
 }
 );
 
