@@ -1,9 +1,12 @@
 import { Membros } from "../models/membros/Membros.js";
 import { MembrosList } from "../models/membros/MembrosList.js";
+import { integrantes } from "../data/membros.js";
 
 const listMembros = new MembrosList();
-const membros = integrantes.map(membro => new Membros(membro.nome, membro.idade, membro.cargo, membro.foto, membro.descricao));
+const membrosNew = integrantes.map(membro => {
+const membros = new Membros(membro.nome, membro.idade, membro.cargo, membro.foto, membro.descricao)
 listMembros.addMembro(membros);
+});
 //pegar todos os membros
 export const getMembros = (req, res) => {
     const { nome, cargo } = req.query;
