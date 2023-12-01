@@ -12,7 +12,6 @@ export const cardsBody = [
         damage: 106,
         damagepersecond: 50,
         rangeddamage: "",
-
         damageondistance: "",
         damageonarea: "",
         damageonimpact: 488,
