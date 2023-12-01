@@ -46,6 +46,8 @@ export const getMembroByID = (req, res) => {
 //criar membro + regras de negocio
 export const createMembro = (req, res) => {
     let { nome, idade, cargo, foto, descricao } = req.body;
+
+    console.log(req.body);
     const erros = [];
  
 
@@ -64,12 +66,13 @@ export const createMembro = (req, res) => {
     if (cargo.length > 20) {
         erros.push("O cargo deve ter no máximo 20 caracteres");
     }
-    if (descricao.length > 100) {
-        erros.push("A descrição deve ter no máximo 100 caracteres");
+    if (descricao.length > 1000) {
+        erros.push("A descrição deve ter no máximo 1000 caracteres");
     }
 
     if (erros.length) {
-        return res.status(400).send({ message: `Corrija, Voce tem ${erros.length} erro(s)`, erros });
+        console.log(erros)
+        return res.status(  ).send({ message: `Corrija, Voce tem ${erros.length} erro(s)`, erros });
     }
 
 
@@ -88,14 +91,16 @@ export const atualizarMembro = (req, res) => {
 
 
     let { nome, idade, cargo, foto, descricao } = req.body;
+
+    console.log(nome, idade, cargo, foto, descricao)
     const erros = [];
 
     if (!nome || !idade || !cargo || !foto || !descricao) {
         return res.status(400).send(
             { message: "Todos os campos são obrigatórios" });
     }
-    if (nome.length > 20) {
-        erros.push("O nome deve ter no máximo 20 caracteres");
+    if (nome.length > 30) {
+        erros.push("O nome deve ter no máximo 30 caracteres");
     }
     if (idade < 15) {
         erros.push("A idade deve ser maior que 15");
@@ -103,11 +108,12 @@ export const atualizarMembro = (req, res) => {
     if (cargo.length > 20) {
         erros.push("O cargo deve ter no máximo 20 caracteres");
     }
-    if (descricao.length > 100) {
-        erros.push("A descrição deve ter no máximo 100 caracteres");
+    if (descricao.length > 1000) {
+        erros.push("A descrição deve ter no máximo 1000 caracteres");
     }
 
     if (erros.length > 0) {
+        console.log(erros)
         return res.status(400).send({ message: `Corrija, Voce tem ${erros.length} erro(s)`, erros });
        
     }else{
