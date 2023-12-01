@@ -3104,7 +3104,7 @@ export const cardsBody = [
         image: "/images/giganteeletrico.png",
         type: "Tropa",
         rarity: "Épico",
-        elixir: "7",
+        elixir: 7,
         hp: 3518,
         deploytime: "",
         shieldhp: "",
