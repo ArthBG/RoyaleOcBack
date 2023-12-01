@@ -1097,7 +1097,7 @@ export const cardsBody = [
 
     {
         name: "Espírito Curador",
-        image: "/images/healspirit.png",
+        image: "/images/espiritocurador.png",
         type: "Feitiço",
         rarity: "",
         elixir: "1",
@@ -1231,7 +1231,7 @@ export const cardsBody = [
 
     {
         name: "Arqueiras",
-        image: "/images/arqueiros.png",
+        image: "/images/arqueiras.png",
         type: "Tropa",
         rarity: "Comum",
         elixir: 3,
@@ -1722,7 +1722,7 @@ export const cardsBody = [
 
     {
         name: "Bebê dragão",
-        image: "/images/Bebêdragão.png",
+        image: "/images/bebedragao.png",
         type: "Tropa",
         rarity: "Épico",
         elixir: 4,
@@ -2172,7 +2172,7 @@ export const cardsBody = [
     },
     {
         name: "Três Mosqueteiras",
-        image: "/images/tresmosqueteiros.png",
+        image: "/images/tresmosqueteiras.png",
         type: "Tropa",
         rarity: "Raro",
         elixir: 9,
@@ -2308,7 +2308,7 @@ export const cardsBody = [
         image: "/images/mineiro.png",
         type: "Tropa",
         rarity: "Lendário",
-        elixir: "3",
+        elixir: 3,
         hp: 1100,
         deploytime: "1seg",
         shieldhp: "",
@@ -3644,7 +3644,7 @@ export const cardsBody = [
     },
     {
         name: "Escavadeira de Goblins",
-        image: "/images/escavadeiradegoblin.png",
+        image: "/images/escavadeiradegoblins.png",
         type: "Construção",
         rarity: "Épico",
         elixir: 4,
@@ -4044,7 +4044,7 @@ export const cardsBody = [
 
     {
         name: "Caçador",
-        image: "/images/caçador.png",
+        image: "/images/cacador.png",
         type: "Tropa",
         rarity: "Épica",
         elixir: 4,
@@ -4260,7 +4260,7 @@ export const cardsBody = [
 
     {
         name: "Lançador",
-        image: "/images/lacador.png",
+        image: "/images/lancador.png",
         type: "Tropa",
         rarity: "Épica",
         elixir: 5,
