@@ -1,7 +1,49 @@
 import { Cards } from "../models/cards/Cards.js";
 import { CardsList } from "../models/cards/CardsList.js";
+import { cardsBody } from "../data/cardsbody.js";
+
 
 const listCards = new CardsList();
+
+const cards = cardsBody.map(
+  (card) => {
+
+   const cardsNew = new Cards(
+      card.name,
+      card.image,
+      card.type,
+      card.rarity,
+      card.elixir,
+      card.hp,
+      card.deploytime,
+      card.shieldhp,
+      card.description,
+      card.damage,
+      card.damagepersecond,
+      card.rangeddamage,
+      card.damageondistance,
+      card.damageonarea,
+      card.damageonimpact,
+      card.damageontower,
+      card.chargedamage,
+      card.damageondeath,
+      card.spawnspeed,
+      card.duration,
+      card.radius,
+      card.width,
+      card.efecttime,
+      card.freezetime,
+      card.unities,
+      card.arena,
+      card.target,
+      card.projectilerange,
+      card.range,
+      card.speed,
+      card.impactspeed
+    )
+    listCards.addCard(cardsNew);
+  }
+);
 
 export const getCards = (req, res) => {
   const { name, type, rarity, elixir } = req.query;
