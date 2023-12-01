@@ -4,12 +4,13 @@ import membroRouter from './membros.routes.js';
 
 const routes = Router();
 
-routes.use('/cards', cardRouter);
-routes.use('/membros', membroRouter);
-
 routes.get('/', (req, res) => {
     res.send('Bem-Vindo(a)!');
 }
 );
 
-export { routes }
+routes.use('/cards', cardRouter);
+routes.use('/membros', membroRouter);
+
+
+export { routes };

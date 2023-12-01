@@ -1,5 +1,5 @@
-import { Membros } from "../models/cadastroM/Membros.js";
-import { MembrosList } from "../models/cadastroM/MembrosList.js";
+import { Membros } from "../models/membros/Membros.js";
+import { MembrosList } from "../models/membros/MembrosList.js";
 
 const listMembros = new MembrosList();
 
@@ -43,20 +43,15 @@ export const getMembroByID = (req, res) => {
 export const createMembro = (req, res) => {
     let { nome, idade, cargo, foto, descricao } = req.body;
     const erros = [];
-    
-    
-    const isUrlValida = (foto) => {
-        const regex = /(http(s?):)([/|.|\w|\s|-])*\.(jpg|gif|png)/g;
-        return regex.test(foto);
-    } 
+ 
 
     if (!nome || !idade || !cargo || !foto || !descricao) {
         return res.status(400).send(
             { message: "Todos os campos são obrigatórios" });
     }
 
-    if (nome.length > 20) {
-        erros.push("O nome deve ter no máximo 20 caracteres");
+    if (nome.length > 30) {
+        erros.push("O nome deve ter no máximo 30 caracteres");
     }
 
     if (idade < 15) {
@@ -68,9 +63,7 @@ export const createMembro = (req, res) => {
     if (descricao.length > 100) {
         erros.push("A descrição deve ter no máximo 100 caracteres");
     }
-    if(!isUrlValida(foto)){
-        erros.push({ message: "Imagem da roupa não pode ser diferente de png, gif, jpg, jpeg!" });
-    }
+
     if (erros.length) {
         return res.status(400).send({ message: `Corrija, Voce tem ${erros.length} erro(s)`, erros });
     }
@@ -109,9 +102,7 @@ export const atualizarMembro = (req, res) => {
     if (descricao.length > 100) {
         erros.push("A descrição deve ter no máximo 100 caracteres");
     }
-    if(foto!= "jpg" && foto != "png" && foto != "gif" && foto != "jpeg" && foto != "webp"){
-        erros.push("A URL da foto é inválida");
-    }
+
     if (erros.length > 0) {
         return res.status(400).send({ message: `Corrija, Voce tem ${erros.length} erro(s)`, erros });
        
