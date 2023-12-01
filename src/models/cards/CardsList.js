@@ -47,7 +47,7 @@ export class CardsList {
   }
 
   getCardByID(id) {
-    return this.cards.find((card) => card.id === id);
+    return this.cards.find((card) => card.id == id);
   }
 
   getAllCards() {
@@ -58,19 +58,19 @@ export class CardsList {
     return this.cards.length;
   }
   getCardByName(name) {
-    return this.cards.find((card) => card.name === name);
+    return this.cards.find((card) => card.name == name);
   }
 
   getCardByType(type) {
-    return this.cards.find((card) => card.type === type);
+    return this.cards.find((card) => card.type == type);
   }
 
   getCardByRarity(rarity) {
-    return this.cards.find((card) => card.rarity === rarity);
+    return this.cards.find((card) => card.rarity == rarity);
   }
 
   getCardByElixir(elixir) {
-    return this.cards.find((card) => card.elixir === elixir);
+    return this.cards.find((card) => card.elixir == elixir);
   }
 
   removeCard(id) {
