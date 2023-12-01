@@ -1,12 +1,8 @@
-import { integrantes } from "../../data/membros.js";
-import { Membros } from "./Membros.js";
+
 
 export class MembrosList {
     constructor() {
         this.membros = [];
-        const membros = integrantes.map(membro => new Membros(membro.nome, membro.idade, membro.cargo, membro.foto, membro.descricao));
-        this.membros.push(...membros);
-       // console.log(this.membros);
     }
     addMembro(membro) {
         this.membros.push(membro);

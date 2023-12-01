@@ -2,7 +2,8 @@ import { Membros } from "../models/membros/Membros.js";
 import { MembrosList } from "../models/membros/MembrosList.js";
 
 const listMembros = new MembrosList();
-
+const membros = integrantes.map(membro => new Membros(membro.nome, membro.idade, membro.cargo, membro.foto, membro.descricao));
+this.membros.push(membros);
 //pegar todos os membros
 export const getMembros = (req, res) => {
     const { nome, cargo } = req.query;
@@ -116,13 +117,6 @@ export const atualizarMembro = (req, res) => {
 //delete membro
 export const deleteMembro = (req, res) => {
     const { id } = req.params;
-
-    const membro = listMembros.getMembroByID(id);
-
-    if (!membro) {
-        return res.status(404).send({ message: `Membro ${id} não encontrado` });
-    }
-
     listMembros.removeMembro(id);
     return res.status(200).send({ message: "Membro removido com sucesso!" });
 }
