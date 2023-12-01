@@ -35,7 +35,7 @@ export class Cards{
     }
 
     generateId(){
-        return Math.floor(Math.random() * 12000);
+        return Math.floor(Math.random() * 100000);
     }
 
 }
