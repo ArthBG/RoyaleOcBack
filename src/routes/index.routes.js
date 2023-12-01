@@ -6,7 +6,7 @@ const routes = Router();
 routes.use('/cards', cardRouter);
 
 routes.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Server On!');
 }
 );
 
