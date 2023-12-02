@@ -80,10 +80,9 @@ export const cardsBody = [
         deploytime: "",
         shieldhp: "",
         description: "É uma festa de Esqueletos no céu até que todos os balões sejam estourados... Aí vira uma festa de Esqueletos no chão!",
-        damage: "",
-        damagepersecond: "",
+        damage: 74,
+        damagepersecond: 74,
         rangeddamage: "",
-
         damageondistance: "",
         damageonarea: "",
         damageonimpact: "",
@@ -2137,8 +2136,8 @@ export const cardsBody = [
 
     },
     {
-        name: "Príncipe Negro",
-        image: "/images/principenegro.png",
+        name: "Príncipe das Trevas",
+        image: "/images/principedastrevas.png",
         type: "Tropa",
         rarity: "Épico",
         elixir: 4,
