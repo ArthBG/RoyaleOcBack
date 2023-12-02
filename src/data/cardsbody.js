@@ -2147,7 +2147,7 @@ export const cardsBody = [
         description: "O Príncipe das Trevas causa dano de área e deixa seu porrete com espinhos falar por ele - porque quando ele fala, parece que ele tem um balde na cabeça.",
         damage: "",
         damagepersecond: 173,
-        rangeddamage: "dano a alcance sla(337)",
+        rangeddamage: "",
         damageondistance: "",
         damageonarea: 226,
         damageonimpact: "",
