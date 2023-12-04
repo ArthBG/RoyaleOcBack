@@ -2137,8 +2137,8 @@ export const cardsBody = [
 
     },
     {
-        name: "Príncipe Negro",
-        image: "/images/principenegro.png",
+        name: "Príncipe das Trevas",
+        image: "/images/principedastrevas.png",
         type: "Tropa",
         rarity: "Épico",
         elixir: 4,
