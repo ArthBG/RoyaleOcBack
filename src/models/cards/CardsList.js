@@ -12,7 +12,15 @@ export class CardsList {
     return this.cards.find((card) => card.id == id);
   }
 
-  getAllCards() {
+  getAllCards(dados) {
+    const { elixir, rarity, type, name } = dados;
+
+    if (elixir || rarity || type || name) {
+      console.log("entrou")
+      console.log(elixir, rarity, type, name)
+      return this.getCardByElixirRaretyType(elixir, rarity, type, name);
+    }
+  
     return this.cards;
   }
 
@@ -20,23 +28,60 @@ export class CardsList {
     return this.cards.length;
   }
   getCardByName(name) {
-    return this.cards.find((card) => card.name == name);
+    return this.cards.filter((card) => card.name == name);
   }
 
   getCardByType(type) {
-    return this.cards.find((card) => card.type == type);
+   const card = this.cards.filter((card) => card.type.toLowerCase() == type.toLowerCase());
+    return card;
   }
 
   getCardByRarity(rarity) {
-    return this.cards.find((card) => card.rarity == rarity);
+    const card = this.cards.filter((card) => card.rarity.toLowerCase() == rarity.toLowerCase());
+    return card;
   }
 
   getCardByElixir(elixir) {
-    return this.cards.find((card) => card.elixir == elixir);
+    const card = this.cards.filter((card) => card.elixir == elixir);
+    return card;
   }
 
   removeCard(id) {
-    this.cards = this.cards.filter((card) => card.id !== id);
+    this.cards = this.cards.filter((card) => card.id != id);
+  }
+
+  getCardByElixirRaretyType(elixir, rarity, type, name) {
+    
+    if (elixir) {
+      elixir = parseInt(elixir);
+    }
+    if (rarity) {
+      rarity = rarity.toLowerCase();
+    }
+    if (type) {
+      type = type.toLowerCase();
+    }
+    if (name) {
+      name = name.toLowerCase();
+    }
+    console.log("nameCondition" , name)
+    console.log("elixirCondition" , elixir)
+    console.log("rarityCondition" , rarity)
+    console.log("typeCondition" , type)
+
+    const card = this.cards.filter((card) => {
+      // Verifica cada condição separadamente, considerando se o parâmetro correspondente foi fornecido
+      const elixirCondition = elixir === undefined || card.elixir === elixir;
+      const rarityCondition = rarity === undefined || card.rarity.toLowerCase() === rarity;
+      const typeCondition = type === undefined || card.type.toLowerCase() === type;
+      const nameCondition = name === undefined || card.name.toLowerCase().includes(name);
+    
+      // Retorna verdadeiro apenas se pelo menos uma das condições for atendida
+      return elixirCondition && rarityCondition && typeCondition && nameCondition;
+    });
+    
+    return card;
+    
   }
 
   updateCard(

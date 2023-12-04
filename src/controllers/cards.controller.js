@@ -8,7 +8,7 @@ const listCards = new CardsList();
 const cards = cardsBody.map(
   (card) => {
 
-   const cardsNew = new Cards(
+    const cardsNew = new Cards(
       card.name,
       card.image,
       card.type,
@@ -46,44 +46,29 @@ const cards = cardsBody.map(
 );
 
 export const getCards = (req, res) => {
-  const { name, type, rarity, elixir } = req.query;
+  let { name, type, rarity, elixir } = req.query;
 
-  const filtered = [];
-  if (name) {
-    const card = listCards.getCardByName(name);
-    if (card) {
-      filtered.push(card);
-    }
-  }
-  if (type) {
-    const card = listCards.getCardByType(type);
-    if (card) {
-      filtered.push(card);
-    }
-  }
-  if (rarity) {
-    const card = listCards.getCardByRarity(rarity);
-    if (card) {
-      filtered.push(card);
-    }
-  }
-  if (elixir) {
-    const card = listCards.getCardByElixir(elixir);
-    if (card) {
-      filtered.push(card);
-    }
-  }
+  console.log( name, type, rarity, elixir)
+  
+  const dados = {
+    name,
+    type,
+    rarity,
+    elixir,
+  };
 
-  if (filtered.length > 0) {
-    return res.status(200).send(filtered);
-  } else {
+  console.log(dados)
+
+  const array = listCards.getAllCards(dados);
+
+  
     return res
       .status(200)
       .send({
-        total: listCards.getCardsLength(),
-        cards: listCards.getAllCards(),
+        total: array.length,
+        cards: array,
       });
-  }
+  
 };
 
 export const getCardByID = (req, res) => {
