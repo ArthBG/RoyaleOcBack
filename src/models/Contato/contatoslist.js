@@ -1,8 +1,5 @@
-export class ContatosList{
-    constructor(){
+export class ContatosList {
+    constructor() {
         this.contatos = [];
-    }
-    getAllContatos() {
-        return this.contatos;
     }
 }
