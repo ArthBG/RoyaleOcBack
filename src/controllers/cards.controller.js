@@ -50,10 +50,10 @@ export const getCards = (req, res) => {
 
   
   const dados = {
-    name,
-    type,
-    rarity,
     elixir,
+    rarity,
+    type,
+    name
   };
 
   console.log(dados)
@@ -116,10 +116,7 @@ export const createCard = (req, res) => {
   } = req.body;
   // const errors = [];
 
-  // const urlValidation = (URL) => {
-  //     const regex = (/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g);
-  //     return regex.test(URL);
-  // }
+  // 
   // if (!name) {
   //     errors.push("Nome não informado");
   // }
