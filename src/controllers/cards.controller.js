@@ -46,20 +46,11 @@ const cards = cardsBody.map(
 );
 
 export const getCards = (req, res) => {
-  let { name, type, rarity, elixir } = req.query;
+  let { name, type, rarity, elixir, orderbyname, orderbyelixir, orderbyrarity } = req.query;
 
-  
-  const dados = {
-    elixir,
-    rarity,
-    type,
-    name
-  };
-
-  console.log(dados)
+  const dados = { name, type, rarity, elixir, orderbyname, orderbyelixir, orderbyrarity }
 
   const array = listCards.getAllCards(dados);
-
   
     return res
       .status(200)

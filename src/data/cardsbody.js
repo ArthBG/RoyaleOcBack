@@ -2926,7 +2926,7 @@ export const cardsBody = [
         image: "/images/cabanadebarbaros.png",
         type: "Construção",
         rarity: "Raro",
-        elixir: 6,
+        elixir: 7,
         hp: 1061,
         deploytime: "",
         shieldhp: "",

@@ -13,13 +13,17 @@ export class CardsList {
   }
 
   getAllCards(dados) {
-    const { elixir, rarity, type, name } = dados;
+    const { name, type, rarity, elixir, orderbyname, orderbyelixir, orderbyrarity } = dados;
 
-    if (elixir || rarity || type || name) {''
-      return this.getCardByElixirRaretyType(elixir, rarity, type, name);
+    if (elixir || rarity || type || name) {
+      return this.getCardByElixirRaretyType(name, type, rarity, elixir);
     }
-  
+    if (orderbyname || orderbyelixir || orderbyrarity) {
+     return this.orderCardsBy(orderbyname, orderbyelixir, orderbyrarity);
+        }
+
     return this.cards;
+   
   }
 
   getCardsLength() {
@@ -48,7 +52,97 @@ export class CardsList {
     this.cards = this.cards.filter((card) => card.id != id);
   }
 
-  getCardByElixirRaretyType(elixir, rarity, type, name) {
+  orderCardsBy(orderbyname, orderbyelixir, orderbyrarity) {
+    let card = this.cards;
+    if (orderbyname) {
+      if (orderbyname == 'asc') {
+      card.sort((a, b) => {
+          if (a.name > b.name) {
+            return 1;
+          }
+          if (a.name < b.name) {
+            return -1;
+          }
+          return 0;
+        });
+      } else if (orderbyname == 'desc') {
+        card = card.sort((a, b) => {
+          if (a.name < b.name) {
+            return 1;
+          }
+          if (a.name > b.name) {
+            return -1;
+          }
+          return 0;
+        });
+      }
+    }
+    if (orderbyelixir) {
+      if (orderbyelixir == 'asc') {
+        card = card.sort((a, b) => {
+          if (a.elixir > b.elixir) {
+            return 1;
+          }
+          if (a.elixir < b.elixir) {
+            return -1;
+          }
+          return 0;
+        });
+      } else if (orderbyelixir == 'desc') {
+        card = card.sort((a, b) => {
+          if (a.elixir < b.elixir) {
+            return 1;
+          }
+          if (a.elixir > b.elixir) {
+            return -1;
+          }
+          return 0;
+        });
+      }
+    }
+
+    if (orderbyrarity) {
+      //ordem das cartas devem ser por raridade: campeão, lendário, épico, raro, comum
+      if (orderbyrarity == 'asc') {
+         let rarityValues = {
+          'comum': 1,
+          'raro': 2,
+          'épico': 3,
+          'lendário': 4,
+          'campeão': 5
+        };
+        card = card.sort((a, b) => {
+          if (rarityValues[a.rarity] > rarityValues[b.rarity]) {
+            return 1;
+          }
+          if (rarityValues[a.rarity] < rarityValues[b.rarity]) {
+            return -1;
+          }
+          return 0;
+        });
+      } else if (orderbyrarity == 'desc') {
+        let rarityValues = {
+          'comum': 1,
+          'raro': 2,
+          'épico': 3,
+          'lendário': 4,
+          'campeão': 5
+        };
+        card = card.sort((a, b) => {
+          if (rarityValues[a.rarity] < rarityValues[b.rarity]) {
+            return 1;
+          }
+          if (rarityValues[a.rarity] > rarityValues[b.rarity]) {
+            return -1;
+          }
+          return 0;
+        });
+      }
+      console.log(card);
+      return card;
+    }
+  }
+  getCardByElixirRaretyType( name, type, rarity, elixir) {
     
     if (elixir) {
       elixir = parseInt(elixir);
@@ -62,6 +156,8 @@ export class CardsList {
     if (name) {
       name = name.toLowerCase();
     }
+   
+
 
     const card = this.cards.filter((card) => {
       // Verifica cada condição separadamente, considerando se o parâmetro correspondente foi fornecido
@@ -69,11 +165,11 @@ export class CardsList {
       const rarityCondition = rarity == undefined || card.rarity.toLowerCase() == rarity;
       const typeCondition = type == undefined || card.type.toLowerCase() == type;
       const nameCondition = name == undefined || card.name.toLowerCase().includes(name);
-    
-      // Retorna verdadeiro apenas se pelo menos uma das condições for atendida
+      // Retorna true se todas as condições forem verdadeiras
+      console.log(card);
       return elixirCondition && rarityCondition && typeCondition && nameCondition;
-    });
     
+    });
     return card;
     
   }
