@@ -15,9 +15,7 @@ export class CardsList {
   getAllCards(dados) {
     const { elixir, rarity, type, name } = dados;
 
-    if (elixir || rarity || type || name) {
-      console.log("entrou")
-      console.log(elixir, rarity, type, name)
+    if (elixir || rarity || type || name) {''
       return this.getCardByElixirRaretyType(elixir, rarity, type, name);
     }
   
@@ -64,10 +62,6 @@ export class CardsList {
     if (name) {
       name = name.toLowerCase();
     }
-    console.log("nameCondition" , name)
-    console.log("elixirCondition" , elixir)
-    console.log("rarityCondition" , rarity)
-    console.log("typeCondition" , type)
 
     const card = this.cards.filter((card) => {
       // Verifica cada condição separadamente, considerando se o parâmetro correspondente foi fornecido
