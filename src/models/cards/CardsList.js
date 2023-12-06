@@ -65,10 +65,10 @@ export class CardsList {
 
     const card = this.cards.filter((card) => {
       // Verifica cada condição separadamente, considerando se o parâmetro correspondente foi fornecido
-      const elixirCondition = elixir === undefined || card.elixir === elixir;
-      const rarityCondition = rarity === undefined || card.rarity.toLowerCase() === rarity;
-      const typeCondition = type === undefined || card.type.toLowerCase() === type;
-      const nameCondition = name === undefined || card.name.toLowerCase().includes(name);
+      const elixirCondition = elixir == undefined || card.elixir == elixir;
+      const rarityCondition = rarity == undefined || card.rarity.toLowerCase() == rarity;
+      const typeCondition = type == undefined || card.type.toLowerCase() == type;
+      const nameCondition = name == undefined || card.name.toLowerCase().includes(name);
     
       // Retorna verdadeiro apenas se pelo menos uma das condições for atendida
       return elixirCondition && rarityCondition && typeCondition && nameCondition;

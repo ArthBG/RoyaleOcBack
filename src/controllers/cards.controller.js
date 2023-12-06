@@ -48,7 +48,6 @@ const cards = cardsBody.map(
 export const getCards = (req, res) => {
   let { name, type, rarity, elixir } = req.query;
 
-  console.log( name, type, rarity, elixir)
   
   const dados = {
     name,
