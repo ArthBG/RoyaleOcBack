@@ -18,9 +18,9 @@ export class CardsList {
     if (elixir || rarity || type || name) {
       return this.getCardByElixirRaretyType(name, type, rarity, elixir);
     }
-    if (orderbyname || orderbyelixir || orderbyrarity) {
-     return this.orderCardsBy(orderbyname, orderbyelixir, orderbyrarity);
-        }
+    // if (orderbyname || orderbyelixir || orderbyrarity) {
+    //  return this.orderCardsBy(orderbyname, orderbyelixir, orderbyrarity);
+    //     }
 
     return this.cards;
    
@@ -52,96 +52,46 @@ export class CardsList {
     this.cards = this.cards.filter((card) => card.id != id);
   }
 
-  orderCardsBy(orderbyname, orderbyelixir, orderbyrarity) {
-    let card = this.cards;
-    if (orderbyname) {
-      if (orderbyname == 'asc') {
-      card.sort((a, b) => {
-          if (a.name > b.name) {
-            return 1;
-          }
-          if (a.name < b.name) {
-            return -1;
-          }
-          return 0;
-        });
-      } else if (orderbyname == 'desc') {
-        card = card.sort((a, b) => {
-          if (a.name < b.name) {
-            return 1;
-          }
-          if (a.name > b.name) {
-            return -1;
-          }
-          return 0;
-        });
-      }
-    }
-    if (orderbyelixir) {
-      if (orderbyelixir == 'asc') {
-        card = card.sort((a, b) => {
-          if (a.elixir > b.elixir) {
-            return 1;
-          }
-          if (a.elixir < b.elixir) {
-            return -1;
-          }
-          return 0;
-        });
-      } else if (orderbyelixir == 'desc') {
-        card = card.sort((a, b) => {
-          if (a.elixir < b.elixir) {
-            return 1;
-          }
-          if (a.elixir > b.elixir) {
-            return -1;
-          }
-          return 0;
-        });
-      }
-    }
-
-    if (orderbyrarity) {
-      //ordem das cartas devem ser por raridade: campeão, lendário, épico, raro, comum
-      if (orderbyrarity == 'asc') {
-         let rarityValues = {
-          'comum': 1,
-          'raro': 2,
-          'épico': 3,
-          'lendário': 4,
-          'campeão': 5
-        };
-        card = card.sort((a, b) => {
-          if (rarityValues[a.rarity] > rarityValues[b.rarity]) {
-            return 1;
-          }
-          if (rarityValues[a.rarity] < rarityValues[b.rarity]) {
-            return -1;
-          }
-          return 0;
-        });
-      } else if (orderbyrarity == 'desc') {
-        let rarityValues = {
-          'comum': 1,
-          'raro': 2,
-          'épico': 3,
-          'lendário': 4,
-          'campeão': 5
-        };
-        card = card.sort((a, b) => {
-          if (rarityValues[a.rarity] < rarityValues[b.rarity]) {
-            return 1;
-          }
-          if (rarityValues[a.rarity] > rarityValues[b.rarity]) {
-            return -1;
-          }
-          return 0;
-        });
-      }
-      console.log(card);
-      return card;
-    }
-  }
+  // orderCardsBy(orderbyname, orderbyelixir, orderbyrarity) {
+  //   let card = [...this.cards]; 
+  
+  //   if (orderbyname === 'asc') {
+  //     card.sort((a, b) => a.name.localeCompare(b.name));
+  //   } else if (orderbyname === 'desc') {
+  //     card.sort((a, b) => b.name.localeCompare(a.name));
+  //   }
+  
+  //   if (orderbyelixir === 'asc') {
+  //     card.sort((a, b) => a.elixir - b.elixir);
+  //   } else if (orderbyelixir === 'desc') {
+  //     card.sort((a, b) => b.elixir - a.elixir);
+  //   }
+  
+  //   if (orderbyrarity === 'asc' || orderbyrarity === 'desc') {
+  //     const rarityValues = {
+  //       'Comum': 1,
+  //       'Raro': 2,
+  //       'Épico': 3,
+  //       'Lendário': 4,
+  //       'Campeão': 5
+  //     };
+  
+  //     card.sort((a, b) => {
+  //       const rarityA = rarityValues[a.rarity];
+  //       const rarityB = rarityValues[b.rarity];
+  
+  //       if (orderbyrarity === 'asc') {
+  //         return rarityA - rarityB;
+  //       } else {
+  //         return rarityB - rarityA;
+  //       }
+  //     });
+  //   }
+  
+  //   console.log(card);
+  //   return card;
+  // }
+  
   getCardByElixirRaretyType( name, type, rarity, elixir) {
     
     if (elixir) {
