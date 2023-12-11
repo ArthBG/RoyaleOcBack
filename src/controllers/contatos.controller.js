@@ -1,18 +1,16 @@
 import { Contatos } from '../models/contatos/Contatos.js';
-import { ContatosLista } from '../models/contatos/contatoslist.js';
+import { ContatosLista } from '../models/contatos/ContatosList.js';
 
 const lista = new ContatosLista();
 
  export const getContatos = (req, res) => {
-     const contatos = lista.getContatos();
-     if (contatos.length) {
-         return res.status(404).send(
-             contatos);
+     const contatosAll = lista.getContatos();
+     if (contatosAll.length) {
+         return res.status(200).send({
+            contatos: contatosAll
+          });
      }
-     return res.status(200).send(
-         { message: "Não há contatos cadastrados!" });
- };
-
+    }
 export const getSContatosById = (req, res) => {
 
     const { id } = req.params;
@@ -28,9 +26,9 @@ export const getSContatosById = (req, res) => {
 };
 
 export const createContatos = (req, res) => {
-    const { nome, email, telefone, quantity} = req.body;
+    let { nome, email, telefone } = req.body;
 
-      let errors = [];
+    let errors = [];
 
     if (nome.length < 6) {
         errors.push("Name must have at least six characters");
@@ -38,8 +36,11 @@ export const createContatos = (req, res) => {
     if (email.length > 30) {
         errors.push("Type must have at least thirty characters");
     }
-    if (telefone < 9 || quantity >= 11 || !Number.isInteger(telefone)){
-        errors.push("Quantity must be a integer number between 9 and 11");
+
+    const telefoneQuantidade = telefone.toString().length;
+    console.log(telefoneQuantidade)
+    if ((telefoneQuantidade >= 9 || telefoneQuantidade <= 11) == false){
+        errors.push("Number must be a integer number between 9 and 11");
     }
     if (errors.length) {
         return res.status(400).send({ messages: errors });
@@ -55,27 +56,15 @@ export const createContatos = (req, res) => {
 export const updateContatos = (req, res) => {
     const { id } = req.params;
     const { nome, email, telefone } = req.body;
-    let errors = [];
+    const contatos = lista.updatedContato(nome, email, telefone, id)
+    if(contatos){
+        return res.status(200).send({ contatos })
+    } else{
+        return res.status(404).send({message: `O contato com id ${id} não foi editado!`})
+    }
 
-    if (nome.length < 6) {
-        errors.push("Name must have at least six characters");
-    }
-    if (email.length > 30) {
-        errors.push("Type must have at least thirty characters");
-    }
-    if (telefone < 9 || quantity >= 11 || !Number.isInteger(telefone)){
-        errors.push("Quantity must be a integer number between 9 and 11");
-    }
-    if (errors.length) {
-        return res.status(400).send({ messages: errors });
-    }  else{
-       
-    const updatedContatos = lista.updateContatos(id, nome, email, telefone);
-    return res.status(200).send({ message: "Contatos atualizados com sucesso!", updatedContatos, });
-    }
-   
-   
-};
+
+}
 
 export const deleteContatos = (req, res) => {
     const { id } = req.params;

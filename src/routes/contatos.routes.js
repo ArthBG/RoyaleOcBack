@@ -4,7 +4,7 @@ import {
     deleteContatos,
     getSContatosById,
     getContatos,
-    updateContatos 
+    updateContatos
 } from "../controllers/contatos.controller.js";
 
 const contatosRoutes = Router();
