@@ -6,5 +6,4 @@ export class Cards{
         this.arena = arena
     }
 
-
 }
