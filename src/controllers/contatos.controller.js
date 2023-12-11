@@ -30,7 +30,7 @@ export const createContatos = (req, res) => {
 
     let errors = [];
 
-    if (nome.length < 6) {
+    if (nome.length < 2) {
         errors.push("Name must have at least six characters");
     }
     if (email.length > 30) {
