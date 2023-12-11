@@ -895,8 +895,8 @@ export const cardsBody = [
     {
         name: "Espírito Curador",
         image: "/images/espiritocurador.png",
-        type: "Rara",
-        rarity: "",
+        type: "Feitiço",
+        rarity: "Rara",
         elixir: "1",
         hp: 210,
         deploytime: "1seg",
