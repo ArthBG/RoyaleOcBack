@@ -106,31 +106,31 @@ export const createCard = (req, res) => {
     impactspeed,
     iscreated
   } = req.body;
-  // const errors = [];
+ const errors = [];
 
-  // 
-  // if (!name) {
-  //     errors.push("Nome não informado");
-  // }
-  // else if (name.find(card => card.name === name)) {
-  //     errors.push("Nome já cadastrado");
-  // }
-  // else if (elixir < 0 || elixir > 10) {
-  //     errors.push(elixir + " não é um valor válido, o valor deve ser entre 0 e 10");
-  // }
-  // else if (!type || !["Tropa", "Construção", "Feitiço"].includes(type)) {
-  //     errors.push("Tipo não informado ou inválido");
-  // }
-  // else if (!rarity || !["Comum", "Rara", "Épica", "Lendária"].includes(rarity)) {
-  //     errors.push("Raridade não informada ou inválida");
-  // }
-  // else if (!hp || hp < 0 || hp > 8756) {
-  //     errors.push("Vida da carta não informada ou inválida");
-  // }
+ 
+ if (!name) {
+     errors.push("Nome não informado");
+ }
+ else if (name.find(card => card.name === name)) {
+     errors.push("Nome já cadastrado");
+ }
+ else if (elixir < 0 || elixir > 10) {
+     errors.push(elixir + " não é um valor válido, o valor deve ser entre 0 e 10");
+ }
+ else if (!type || !["Tropa", "Construção", "Feitiço"].includes(type)) {
+     errors.push("Tipo não informado ou inválido");
+ }
+ else if (!rarity || !["Comum", "Rara", "Épica", "Lendária"].includes(rarity)) {
+     errors.push("Raridade não informada ou inválida");
+ }
+ else if (!hp || hp < 0 || hp > 8756) {
+     errors.push("Vida da carta não informada ou inválida");
+ }
 
-  // if (errors.length > 0) {
-  //     return res.status(400).send({ message: `${errors.flat()}` });
-  // }
+ if (errors.length > 0) {
+     return res.status(400).send({ message: `${errors.flat()}` });
+ }
   const card = new Cards(
     name,
     image,
