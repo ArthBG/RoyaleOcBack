@@ -104,6 +104,7 @@ export const createCard = (req, res) => {
     range,
     speed,
     impactspeed,
+    iscreated
   } = req.body;
   // const errors = [];
 
@@ -161,7 +162,8 @@ export const createCard = (req, res) => {
     projectilerange,
     range,
     speed,
-    impactspeed
+    impactspeed,
+    iscreated
   );
   listCards.addCard(card);
   return res.status(201).send(card);
