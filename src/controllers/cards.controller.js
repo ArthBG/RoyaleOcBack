@@ -124,9 +124,6 @@ export const createCard = (req, res) => {
   else if (!rarity || !["Comum", "Raro", "Épico", "Lendário"].includes(rarity)) {
     errors.push("Raridade não informada ou inválida");
   }
-  else if (!hp || hp < 0 || hp > 8756) {
-    errors.push("Vida da carta não informada ou inválida");
-  }
 
   if (errors.length > 0) {
     return res.status(400).send({ message: `${errors.flat()}` });
