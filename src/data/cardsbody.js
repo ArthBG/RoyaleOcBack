@@ -1737,7 +1737,7 @@ export const cardsBody = [
         damageondistance: "",
         damageonarea: "",
         damageonimpact: "",
-        damageontower: "",
+        damageontower: 974,
         chargedamage: "",
         damageondeath: 487,
         spawnspeed: "",
