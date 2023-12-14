@@ -208,9 +208,6 @@ export const updateCard = (req, res) => {
   if (!name) {
     errors.push("Nome não informado");
   }
-  else if (listCards.verifyCardByName(name) == true) {
-    errors.push("Nome já cadastrado");
-  }
   else if (elixir < 1 || elixir > 10) {
     errors.push(elixir + " não é um valor válido, o valor deve ser entre 1 e 10");
   }
