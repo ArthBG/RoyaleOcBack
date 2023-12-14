@@ -1,5 +1,5 @@
 export class Cards{
-    constructor(name, image, type, rarity, elixir, hp, deploytime, shieldhp, description, damage, damagepersecond, rangeddamage, damageondistance, damageonarea, damageonimpact, damageontower, chargedamage, damageondeath, spawnspeed, duration, radius, width, efecttime, freezetime, unities, arena, target, projectilerange, range, speed, impactspeed){
+    constructor(name, image, type, rarity, elixir, hp, deploytime, shieldhp, description, damage, damagepersecond, rangeddamage, damageondistance, damageonarea, damageonimpact, damageontower, chargedamage, damageondeath, spawnspeed, duration, radius, width, efecttime, freezetime, unities, arena, target, projectilerange, range, speed, impactspeed, iscreated){
         this.name = name;
         this.image = image;
         this.type = type;
@@ -31,6 +31,7 @@ export class Cards{
         this.range = range;
         this.speed = speed;
         this.impactspeed = impactspeed;
+        this.iscreated = iscreated;
         this.id = this.generateId();
     }
 

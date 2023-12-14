@@ -51,14 +51,14 @@ export const getCards = (req, res) => {
   const dados = { name, type, rarity, elixir, orderbyname, orderbyelixir, orderbyrarity }
 
   const array = listCards.getAllCards(dados);
-  
-    return res
-      .status(200)
-      .send({
-        total: array.length,
-        cards: array,
-      });
-  
+
+  return res
+    .status(200)
+    .send({
+      total: array.length,
+      cards: array,
+    });
+
 };
 
 export const getCardByID = (req, res) => {
@@ -104,67 +104,67 @@ export const createCard = (req, res) => {
     range,
     speed,
     impactspeed,
+    iscreated
   } = req.body;
-  // const errors = [];
+  const errors = [];
 
-  // 
-  // if (!name) {
-  //     errors.push("Nome não informado");
-  // }
-  // else if (name.find(card => card.name === name)) {
-  //     errors.push("Nome já cadastrado");
-  // }
-  // else if (elixir < 0 || elixir > 10) {
-  //     errors.push(elixir + " não é um valor válido, o valor deve ser entre 0 e 10");
-  // }
-  // else if (!type || !["Tropa", "Construção", "Feitiço"].includes(type)) {
-  //     errors.push("Tipo não informado ou inválido");
-  // }
-  // else if (!rarity || !["Comum", "Rara", "Épica", "Lendária"].includes(rarity)) {
-  //     errors.push("Raridade não informada ou inválida");
-  // }
-  // else if (!hp || hp < 0 || hp > 8756) {
-  //     errors.push("Vida da carta não informada ou inválida");
-  // }
 
-  // if (errors.length > 0) {
-  //     return res.status(400).send({ message: `${errors.flat()}` });
-  // }
-  const card = new Cards(
-    name,
-    image,
-    type,
-    rarity,
-    elixir,
-    hp,
-    deploytime,
-    shieldhp,
-    description,
-    damage,
-    damagepersecond,
-    rangeddamage,
-    damageondistance,
-    damageonarea,
-    damageonimpact,
-    damageontower,
-    chargedamage,
-    damageondeath,
-    spawnspeed,
-    duration,
-    radius,
-    width,
-    efecttime,
-    freezetime,
-    unities,
-    arena,
-    target,
-    projectilerange,
-    range,
-    speed,
-    impactspeed
-  );
-  listCards.addCard(card);
-  return res.status(201).send(card);
+  if (!name) {
+    errors.push("Nome não informado");
+  }
+  else if (listCards.verifyCardByName(name) == true) {
+    errors.push("Nome já cadastrado");
+  }
+  else if (elixir < 0 || elixir > 10) {
+    errors.push(elixir + " não é um valor válido, o valor deve ser entre 0 e 10");
+  }
+  else if (!type || !["Tropa", "Construção", "Feitiço"].includes(type)) {
+    errors.push("Tipo não informado ou inválido");
+  }
+  else if (!rarity || !["Comum", "Raro", "Épico", "Lendário"].includes(rarity)) {
+    errors.push("Raridade não informada ou inválida");
+  }
+
+  if (errors.length > 0) {
+    return res.status(400).send({ message: `${errors.flat()}` });
+  } else {
+    const card = new Cards(
+      name,
+      image,
+      type,
+      rarity,
+      elixir,
+      hp,
+      deploytime,
+      shieldhp,
+      description,
+      damage,
+      damagepersecond,
+      rangeddamage,
+      damageondistance,
+      damageonarea,
+      damageonimpact,
+      damageontower,
+      chargedamage,
+      damageondeath,
+      spawnspeed,
+      duration,
+      radius,
+      width,
+      efecttime,
+      freezetime,
+      unities,
+      arena,
+      target,
+      projectilerange,
+      range,
+      speed,
+      impactspeed,
+      iscreated
+    );
+    listCards.addCard(card);
+    return res.status(201).send(card);
+  }
 };
 
 export const updateCard = (req, res) => {
@@ -202,44 +202,68 @@ export const updateCard = (req, res) => {
     speed,
     impactspeed,
   } = req.body;
-  const card = listCards.updateCard(
-    name,
-    image,
-    type,
-    rarity,
-    elixir,
-    hp,
-    deploytime,
-    shieldhp,
-    description,
-    damage,
-    damagepersecond,
-    rangeddamage,
-    damageondistance,
-    damageonarea,
-    damageonimpact,
-    damageontower,
-    chargedamage,
-    damageondeath,
-    spawnspeed,
-    duration,
-    radius,
-    width,
-    efecttime,
-    freezetime,
-    unities,
-    arena,
-    target,
-    projectilerange,
-    range,
-    speed,
-    impactspeed,
-    id
-  );
-  if (card) {
-    return res.status(200).send(card);
+  const errors = [];
+
+
+  if (!name) {
+    errors.push("Nome não informado");
+  }
+  else if (elixir < 1 || elixir > 10) {
+    errors.push(elixir + " não é um valor válido, o valor deve ser entre 1 e 10");
+  }
+  else if (!type || !["Tropa", "Construção", "Feitiço"].includes(type)) {
+    errors.push("Tipo não informado ou inválido");
+  }
+
+
+  else if (!rarity || !["Comum", "Raro", "Épico", "Lendário", "Campeão"].includes(rarity)) {
+    errors.push("Raridade não informada ou inválida");
+  }
+
+
+
+  if (errors.length > 0) {
+    return res.status(400).send({ message: `${errors.flat()}` });
   } else {
-    return res.status(404).send({ message: "Carta não encontrada" });
+    const card = listCards.updateCard(
+      name,
+      image,
+      type,
+      rarity,
+      elixir,
+      hp,
+      deploytime,
+      shieldhp,
+      description,
+      damage,
+      damagepersecond,
+      rangeddamage,
+      damageondistance,
+      damageonarea,
+      damageonimpact,
+      damageontower,
+      chargedamage,
+      damageondeath,
+      spawnspeed,
+      duration,
+      radius,
+      width,
+      efecttime,
+      freezetime,
+      unities,
+      arena,
+      target,
+      projectilerange,
+      range,
+      speed,
+      impactspeed,
+      id
+    );
+    if (card) {
+      return res.status(200).send(card);
+    } else {
+      return res.status(404).send({ message: "Carta não encontrada" });
+    }
   }
 };
 

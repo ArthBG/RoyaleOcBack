@@ -32,7 +32,12 @@ export class CardsList {
   getCardByName(name) {
     return this.cards.filter((card) => card.name == name);
   }
-
+  verifyCardByName(name) {
+    if (this.cards.find((card) => card.name == name)) {
+      return true;
+    }
+    return false;
+  }
   getCardByType(type) {
    const card = this.cards.filter((card) => card.type.toLowerCase() == type.toLowerCase());
     return card;
