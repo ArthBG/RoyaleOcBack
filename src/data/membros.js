@@ -1,7 +1,7 @@
 export const integrantes = [
     {
         nome:"Arthur",
-        idade: 17,
+        idade: 16,
         cargo:"Tech Lead",
         foto:"/images/bg.png",
         descricao:"Arthur é um estudante dedicado do curso de Desenvolvimento de Sistemas no SENAI. Com sua paixão pela programação, ele se destaca por sua habilidade em resolver problemas complexos e sua capacidade de pensar de forma lógica."
