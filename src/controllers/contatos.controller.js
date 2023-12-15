@@ -30,13 +30,6 @@ export const createContatos = (req, res) => {
 
     let errors = [];
 
-    if (nome.length < 6) {
-        errors.push("Name must have at least six characters");
-    }
-    if (email.length > 30) {
-        errors.push("Type must have at least thirty characters");
-    }
-
     const telefoneQuantidade = telefone.toString().length;
     if ((telefoneQuantidade >= 9 || telefoneQuantidade <= 11) == false){
         errors.push("Number must be a integer number between 9 and 11");
@@ -59,6 +52,8 @@ export const updateContatos = (req, res) => {
     const { id } = req.params;
     const { nome, email, telefone, comentario } = req.body;
     const contatos = lista.updatedContato(nome, email, telefone, comentario, id)
+
+
     if(contatos){
         return res.status(200).send({ contatos })
     } else{
