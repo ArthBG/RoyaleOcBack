@@ -47,7 +47,6 @@ export const getMembroByID = (req, res) => {
 export const createMembro = (req, res) => {
     let { nome, idade, cargo, foto, descricao } = req.body;
 
-    console.log(req.body);
     const erros = [];
  
 
@@ -71,7 +70,6 @@ export const createMembro = (req, res) => {
     }
 
     if (erros.length) {
-        console.log(erros)
         return res.status(  ).send({ message: `Corrija, Voce tem ${erros.length} erro(s)`, erros });
     }
 
@@ -92,7 +90,6 @@ export const atualizarMembro = (req, res) => {
 
     let { nome, idade, cargo, foto, descricao } = req.body;
 
-    console.log(nome, idade, cargo, foto, descricao)
     const erros = [];
 
     if (!nome || !idade || !cargo || !foto || !descricao) {
@@ -113,7 +110,6 @@ export const atualizarMembro = (req, res) => {
     }
 
     if (erros.length > 0) {
-        console.log(erros)
         return res.status(400).send({ message: `Corrija, Voce tem ${erros.length} erro(s)`, erros });
        
     }else{

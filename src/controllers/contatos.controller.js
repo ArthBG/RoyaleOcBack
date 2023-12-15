@@ -38,7 +38,6 @@ export const createContatos = (req, res) => {
     }
 
     const telefoneQuantidade = telefone.toString().length;
-    console.log(telefoneQuantidade)
     if ((telefoneQuantidade >= 9 || telefoneQuantidade <= 11) == false){
         errors.push("Number must be a integer number between 9 and 11");
     }
