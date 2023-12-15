@@ -19,13 +19,14 @@ export class ContatosLista{
         this.contatos = this.contatos.filter(contatos => contatos.id != id);
     }
 
-    updatedContato(nome, email, telefone, id){
+    updatedContato(nome, email, telefone,comentario, id){
         const contato = this.getContatosById(id);
         if(!contato) return;
         if(contato){
           contato.nome = nome;
           contato.email = email;    
           contato.telefone = telefone;
+          contato.comentario = comentario;
         
         }
         return contato;

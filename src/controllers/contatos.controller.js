@@ -26,7 +26,7 @@ export const getSContatosById = (req, res) => {
 };
 
 export const createContatos = (req, res) => {
-    let { nome, email, telefone } = req.body;
+    let { nome, email, telefone, comentario } = req.body;
 
     let errors = [];
 
@@ -37,7 +37,7 @@ export const createContatos = (req, res) => {
     if (errors.length) {
         return res.status(400).send({ messages: errors });
     } else {
-        const contatos = new Contatos(nome, email, telefone);
+        const contatos = new Contatos(nome, email, telefone, comentario);
         lista.addContatos(contatos);
         return res.status(201).send({ message: "Contato criado com sucesso", contatos, });
     }
@@ -48,7 +48,7 @@ export const createContatos = (req, res) => {
 export const updateContatos = (req, res) => {
     const { id } = req.params;
     const { nome, email, telefone } = req.body;
-    const contatos = lista.updatedContato(nome, email, telefone, id)
+    const contatos = lista.updatedContato(nome, email, telefone,comentario, id)
     if(contatos){
         return res.status(200).send({ contatos })
     } else{
